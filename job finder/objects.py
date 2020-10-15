@@ -6,6 +6,7 @@ class job_c:
     city = None
     salary_low = None
     salary_high = None
+    us_only = None
 
     def __init__(self, title, url):
         self.title = title

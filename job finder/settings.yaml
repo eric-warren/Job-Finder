@@ -1,0 +1,19 @@
+places:
+  ottawa:
+    country_code: ca
+    country: Canada
+    city: Ottawa
+
+search:
+  main_key:
+    - Security
+    - Network
+  prefix:
+    - Junior
+  suffix:
+    - Engineer
+    - Administrator
+  custom_search:
+    - Security Automation Engineer
+
+  
