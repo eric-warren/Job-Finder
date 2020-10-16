@@ -3,11 +3,16 @@ from bs4 import BeautifulSoup
 from objects import job_c
 import yaml
 
+def get_parse_keys(settings):
+    return settings["parse"]
 
-def get_settings():
-    with open('settings.yaml') as f:
-        settings = yaml.load(f, Loader=yaml.FullLoader)
-    return settings
+def get_search_areas(settings):
+    areas = []
+    settings = settings["areas"]
+    for area in settings.values():
+        areas.append({"country_code":area["country_code"], "country":area["country"], "city":area["city"]})
+    
+    return areas
 
 def get_search_keys(settings):
     search_keys = []
@@ -21,15 +26,14 @@ def get_search_keys(settings):
             search_keys.append(key + " " + end)
             for start in prefix:
                  search_keys.append(start + " " + key + " " + end)
-    
 
-def get_search_areas(settings):
-    areas = []
-    settings = settings["areas"]
-    for area in settings.values():
-        areas.append({"country_code":area["country_code"], "country":area["country"], "city":area["city"]})
+def get_settings():
+    with open('settings.yaml') as f:
+        settings = yaml.load(f, Loader=yaml.FullLoader)
     
-    return areas
+    updated_settings = {"parse_keys":get_parse_keys(settings), "areas":get_search_areas(settings), "search_keys":get_search_keys(settings)}
+
+    return updated_settings
 
 
 
@@ -42,14 +46,21 @@ def get_page(url):
 def parse_desc(job):
     
     desc = job.description.lower()
-    #if job.isremote is None and any(key in desc for key in remote_key):\
-    #    pass
+
+    settings = get_settings()
+
+    # Is ridiculous if statement sets the isremote parameter based off the keywoprds in the settings
+    if job.isremote is None and any(key in desc for key in settings["parse_keys"]["remote"]["is"]) and not any(key in desc for key in settings["parse_keys"]["remote"]["not"]):\
+        job.isremote = True
+
+    if job.isremote is None and any(key in desc for key in settings["parse_keys"]["us_only"]["is"]) and not any(key in desc for key in settings["parse_keys"]["us_only"]["not"]):\
+        job.isremote = True
 
 
 
 
 
-'''
+
 f = open("demofile2.txt", "r")
 job  = f.read().split("\n")
 
@@ -61,5 +72,4 @@ my_job.city = job[1]
 my_job.salary_low = job[2]
 my_job.salary_high = job[3]
 
-parse_desc(my_job)'''
-get_search_areas(get_settings())
+parse_desc(my_job)

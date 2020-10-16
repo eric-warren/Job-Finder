@@ -20,4 +20,19 @@ search:
   custom_search:
     - Security Automation Engineer
 
+parse:
+  remote:
+    is:
+      - test1
+      - test2
+    not:
+      - test3
+      - test4
+  us_only:
+    is:
+      - test5
+      - test6
+    not:
+      - test7
+      - test8
   
