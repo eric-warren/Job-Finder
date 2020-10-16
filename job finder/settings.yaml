@@ -1,8 +1,12 @@
-places:
+areas:
   ottawa:
     country_code: ca
     country: Canada
     city: Ottawa
+  zurich:
+    country_code: ch
+    country: Switzerland
+    city: Zurich
 
 search:
   main_key:

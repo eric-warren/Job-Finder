@@ -23,6 +23,16 @@ def get_search_keys(settings):
                  search_keys.append(start + " " + key + " " + end)
     
 
+def get_search_areas(settings):
+    areas = []
+    settings = settings["areas"]
+    for area in settings.values():
+        areas.append({"country_code":area["country_code"], "country":area["country"], "city":area["city"]})
+    
+    return areas
+
+
+
 def get_page(url):
     session = HTMLSession()
     r = session.get(url)
@@ -52,4 +62,4 @@ my_job.salary_low = job[2]
 my_job.salary_high = job[3]
 
 parse_desc(my_job)'''
-get_search_keys(get_settings())
+get_search_areas(get_settings())
