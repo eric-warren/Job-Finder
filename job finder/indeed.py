@@ -51,13 +51,9 @@ def parse_indeed(jobs):
         else:
             page = get_page(job)
         title = page.select(".icl-u-xs-mb--xs")[0].text
-        parsed_job = job_c(title, add_prefix(job))
+        company = page.select("div.icl-u-lg-mr--sm:nth-child(1)")[0].text
+        parsed_job = job_c(title, company ,add_prefix(job))
 
-        try:
-            company = page.select("div.icl-u-lg-mr--sm:nth-child(1)")[0].text
-            parsed_job.company = company
-        except:
-            pass
         try:
             city = page.select(".jobsearch-InlineCompanyRating > div:nth-child(3)")[0].text
             parsed_job.city = city

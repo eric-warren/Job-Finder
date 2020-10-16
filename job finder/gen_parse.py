@@ -64,9 +64,8 @@ def parse_desc(job):
 f = open("demofile2.txt", "r")
 job  = f.read().split("\n")
 
-my_job = job_c(job[4], job[5])
+my_job = job_c(job[4], job[6] ,job[5])
 
-my_job.company = job[6]
 my_job.description = job[0]
 my_job.city = job[1]
 my_job.salary_low = job[2]
