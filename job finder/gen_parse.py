@@ -53,8 +53,8 @@ def parse_desc(job):
     if job.isremote is None and any(key in desc for key in settings["parse_keys"]["remote"]["is"]) and not any(key in desc for key in settings["parse_keys"]["remote"]["not"]):\
         job.isremote = True
 
-    if job.isremote is None and any(key in desc for key in settings["parse_keys"]["us_only"]["is"]) and not any(key in desc for key in settings["parse_keys"]["us_only"]["not"]):\
-        job.isremote = True
+    if job.us_only is None and any(key in desc for key in settings["parse_keys"]["us_only"]["is"]) and not any(key in desc for key in settings["parse_keys"]["us_only"]["not"]):\
+        job.us_only = True
 
 
 
