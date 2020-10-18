@@ -1,17 +1,25 @@
-from gen_parse import BeautifulSoup
 from gen_parse import get_page
 from objects import job_c
 from time import sleep
 from random import randint
 
-def get_jobs(soup):
+def get_job_links(soup):
+    """
+    finds all the job posting in the search page of indeed
+
+    Args:
+        soup bs4 object: page that was scraped
+
+    Returns:
+        list: list of the links to all the jobn postings
+    """
     divs = soup.find_all('div')
     job_links = []
     for div in divs:
         try:
-            #checks for the indicators of job postings
+            # Checks for the indicators of job postings
             if "pj_" in div.get("id") or "p_" in div.get("id"):     
-                # makes a list of the links to the page that the job is on      
+                # Makes a list of the links to the page that the job is on      
                 job_links.append(div.find_all("a",href=True, class_="jobtitle turnstileLink")[0]["href"])
         except:
             pass
@@ -19,27 +27,57 @@ def get_jobs(soup):
     return job_links
 
 def get_next_page(soup):
+    """
+    Gets the next page link if it exists
+
+    Args:
+        soup bs4 object: page that was scraped
+
+    Returns:
+        string: link to next page
+    """
     try:
+        # Gets the link to the next page
         next = soup.find(attrs={"aria-label": "Next"})
         next = next["href"]
     except:
+        # If its the last page ste the next page to false
         next = False
-    return(next)
+    return next
 
 
 def get_s_page_info(url):
+    """
+    Gets the search page and all the needed info about it
+
+    Args:
+        url string: the url of the search
+    """
+        # Gets the page
         soup = get_page(url)
-        jobs = get_jobs(soup)
+
+        # Gets the job links
+        jobs = get_job_links(soup)
+
+        # Get the link to the next page
         next_page = get_next_page(soup)
 
         return{"job_links": jobs, "next_page": next_page}
         
 
-def add_prefix(url):
-    return("https://ca.indeed.com" + url)
+def add_prefix(url, country_code):
+    """
+    adds the proper prefix to the indeed url
+
+    Args:
+        url string: URL with proper subdomain
+    """
+    url = "https://%d.indeed.com" % (country_code) + url)
+
+    return(url)
 
 
-def parse_indeed(jobs):
+def parse_indeed(jobs, country_code):
 
     parsed_jobs = []
 
@@ -97,5 +135,5 @@ def search_indeed(term, city, country_code):
             job_links.append(link)
         next_page = page_info["next_page"]
     
-    jobs = parse_indeed(job_links)
+    jobs = parse_indeed(job_links, country_code)
     return(jobs)
