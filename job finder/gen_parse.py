@@ -133,5 +133,3 @@ my_job.salary_low = job[2]
 my_job.salary_high = job[3]
 
 parse_desc(my_job)'''
-
-print(get_settings())

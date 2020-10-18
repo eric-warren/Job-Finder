@@ -27,7 +27,7 @@ class job_c(base):
         if md5 is not "None":
             self.md5 = md5
         else:
-            self.md5 = hashlib.md5((title+company.name).encode()) 
+            self.md5 = hashlib.md5((title+company).encode()) 
         self.isremote = isremote
         self.description = description
         self.city = city

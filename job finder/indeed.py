@@ -53,16 +53,16 @@ def get_s_page_info(url):
     Args:
         url string: the url of the search
     """
-        # Gets the page
-        soup = get_page(url)
+    # Gets the page
+    soup = get_page(url)
 
-        # Gets the job links
-        jobs = get_job_links(soup)
+    # Gets the job links
+    jobs = get_job_links(soup)
 
-        # Get the link to the next page
-        next_page = get_next_page(soup)
+    # Get the link to the next page
+    next_page = get_next_page(soup)
 
-        return{"job_links": jobs, "next_page": next_page}
+    return{"job_links": jobs, "next_page": next_page}
         
 
 def add_prefix(url, country_code):
@@ -72,37 +72,63 @@ def add_prefix(url, country_code):
     Args:
         url string: URL with proper subdomain
     """
-    url = "https://%d.indeed.com" % (country_code) + url)
+    url = "https://%s.indeed.com" % (country_code) + url
 
     return(url)
 
 
 def parse_indeed(jobs, country_code):
+    """[summary]
+
+    Args:
+        jobs list: job links that need to be parsed
+        country_code string: country code for the indeed subdomain
+
+    Returns:
+        list: job objects that have all the info parsed
+    """
 
     parsed_jobs = []
 
+    # Loops through job links
     for job in jobs:
 
+        #random delay might move this later
         sleep(randint(10,100)/100)
+        
+        # checks if the prefix is already in the link if nto adds it
         if "indeed.com" not in job:
-            page = get_page(add_prefix(job))
+            page = get_page(add_prefix(job, country_code))
         else:
             page = get_page(job)
-        title = page.select(".icl-u-xs-mb--xs")[0].text
-        company = page.select("div.icl-u-lg-mr--sm:nth-child(1)")[0].text
-        parsed_job = job_c(title, company ,add_prefix(job))
+        
+        # Grabs the job title and company from the page (some links go directly to the company page therefore a try continue)
+        try:
+            title = page.select(".icl-u-xs-mb--xs")[0].text
+            company = page.select("div.icl-u-lg-mr--sm:nth-child(1)")[0].text
 
+        except:
+            continue
+
+        parsed_job = job_c(title, company ,add_prefix(job, country_code))
+
+
+        # Tries to get the city from the page
         try:
             city = page.select(".jobsearch-InlineCompanyRating > div:nth-child(3)")[0].text
             parsed_job.city = city
         except:
             pass
+
+        # Tries to get if the job is remote from the page
         try:
             remote = page.select(".icl-u-textColor--secondary > div:nth-child(2)")[0].text
             if remote == "Remote":
                 parsed_job.isremote = True
         except:
             pass
+
+        # Tries to get the salary range from the page
         try:
             salary = page.select("span.icl-u-xs-mr--xs")[0].text
             salary = salary.split()
@@ -110,30 +136,52 @@ def parse_indeed(jobs, country_code):
             parsed_job.salary_high = salary[2][1:].replace(",","")
         except:
             pass
+
+        # Tries to get the job description from the page
         try:
             job_desc = page.select("#jobDescriptionText")[0].text
             parsed_job.description = job_desc
         except:
             pass
         
+        # Adds the job to the parsed list
         parsed_jobs.append(parsed_job)
-    return(parsed_jobs)
+
+    return parsed_jobs
 
 
 def search_indeed(term, city, country_code):
+    """
+    Main Indeed function that call all the other functions and creates the search url
+
+    Args:
+        term string: what you want to search on indeed
+        city string: what city you want to search
+        country_code string: the country code to search
+
+    Returns:
+        [type]: [description]
+    """
+    # Creates the search url
     term = term.replace(" ", "+")
     url = f"https://{country_code}.indeed.com/jobs?q={term}&l={city}"
 
+    # Get all the iunfo about the search results page
     page_info = get_s_page_info(url)
+
+    # Gets the list and string from the dict that was returned
     job_links = (page_info["job_links"])
     next_page = page_info["next_page"]
 
+    # While therte is still a next page go to it and get all the info
     while next_page:
-        next_page = add_prefix(next_page)
+        next_page = add_prefix(next_page, country_code)
         page_info = get_s_page_info(next_page)
         for link in page_info["job_links"]:
             job_links.append(link)
         next_page = page_info["next_page"]
     
+    # Parses the job to create job objects
     jobs = parse_indeed(job_links, country_code)
-    return(jobs)
+
+    return jobs
