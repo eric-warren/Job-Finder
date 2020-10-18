@@ -1,4 +1,5 @@
 from gen_parse import get_page
+from gen_parse import parse_gen_job
 from objects import job_c
 from time import sleep
 from random import randint
@@ -184,4 +185,9 @@ def search_indeed(term, city, country_code):
     # Parses the job to create job objects
     jobs = parse_indeed(job_links, country_code)
 
-    return jobs
+    parsed_jobs = []
+
+    for job in jobs:
+        parsed_jobs.append(parse_gen_job(job))
+
+    return parsed_jobs

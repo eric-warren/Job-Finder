@@ -94,7 +94,7 @@ def get_page(url):
 
     return soup
 
-def parse_desc(job):
+def parse_gen_job(job):
     """
     Parse's the doc and sets some of the attributes based off word in the description
 
