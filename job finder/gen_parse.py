@@ -106,30 +106,19 @@ def parse_gen_job(job):
     """
     # Set the description lowercase for easier parsing
     desc = job.description.lower()
+    title = job.title.lower()
 
     settings = get_settings()
 
-    # This ridiculous if statement sets the isremote parameter based off the keywoprds in the settings
-    if job.isremote is False and any(key.lower() in desc for key in settings["parse_keys"]["remote"]["is"]) and not any(key.lower() in desc for key in settings["parse_keys"]["remote"]["not"]):\
+    # This ridiculous if statement sets the isremote parameter based off the keywords in the settings
+    if job.isremote is False and any(key.lower() in desc for key in settings["parse_keys"]["remote"]["is"]) and not any(key.lower() in desc for key in settings["parse_keys"]["remote"]["not"]):
+        job.isremote = True
+    if job.isremote is False and any(key.lower() in title for key in settings["parse_keys"]["remote"]["is"]) and not any(key.lower() in title for key in settings["parse_keys"]["remote"]["not"]):
         job.isremote = True
     # Same as above except for us_only
-    if job.us_only is False and any(key.lower() in desc for key in settings["parse_keys"]["us_only"]["is"]) and not any(key.lower() in desc for key in settings["parse_keys"]["us_only"]["not"]):\
+    if job.us_only is False and any(key.lower() in desc for key in settings["parse_keys"]["us_only"]["is"]) and not any(key.lower() in desc for key in settings["parse_keys"]["us_only"]["not"]):
         job.us_only = True
     
     return job
 
 
-
-'''
-from objects import job_c
-f = open("demofile2.txt", "r")
-job  = f.read().split("\n")
-
-my_job = job_c(job[4], job[6] ,job[5])
-
-my_job.description = job[0]
-my_job.city = job[1]
-my_job.salary_low = job[2]
-my_job.salary_high = job[3]
-
-parse_desc(my_job)'''
