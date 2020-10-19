@@ -23,10 +23,11 @@ def create_db():
         # Create a table object with the appropriate Columns
         Table("jobs", metadata,
             Column('md5', String, primary_key=True), 
-            Column('isremote', Boolean), Column('company', String),
+            Column('title', String), Column('isremote', Boolean), Column('company', String),
             Column('description', String), Column('city', String),
             Column('salary_low', Integer), Column('salary_high', Integer),
-            Column('us_only', Boolean))
+            Column('us_only', Boolean), Column('country', String),
+            Column('country_code', String))
         # Implement the creation
         metadata.create_all()
 
@@ -38,7 +39,6 @@ def create_db():
             Column('name', String, primary_key=True))
         # Implement the creation
         metadata.create_all()
-
 
 def get_session():
     """
@@ -65,6 +65,7 @@ def insert_job(job):
     # Gets all the jobs from the DB
     all_jobs = get_jobs()
 
+
     # Checks to see if the MD5 hash exists and if it doesnt adds the job to the DB
     if not any(l_job.md5 == job.md5 for l_job in all_jobs):
 
@@ -74,6 +75,11 @@ def insert_job(job):
         # Adds and commit to DB
         session.add(job)
         session.commit()
+        session.expunge_all()
+        session.close()
+        return job
+    else:
+        return False
 
 
 def insert_company(company):
@@ -97,6 +103,8 @@ def insert_company(company):
         # Adds and commits to DB
         session.add(company)
         session.commit()
+        session.expunge_all()
+        session.close()
 
 def get_jobs():
     """
@@ -111,6 +119,8 @@ def get_jobs():
 
     # Queries DB for all Jobs
     jobs = session.query(job_c).all()
+    session.expunge_all()
+    session.close()
 
     return jobs
 
@@ -127,6 +137,8 @@ def get_companies():
 
     # Queries DB for all Companies
     companies = session.query(company_c).all()
+    session.expunge_all()
+    session.close()
 
     return companies
 

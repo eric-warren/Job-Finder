@@ -25,18 +25,18 @@ def input_text(driver, selector, inp):
 
 def search_jobs(driver, term, city):
 
-    sleep(randint(20,50)/100)
+    sleep(randint(2,5)
     input_text(driver, "#sc\.keyword", term)
-    sleep(randint(20,50)/100)
+    sleep(randint(2,5)
     input_text(driver, "#sc\.location", city)
-    sleep(randint(20,50)/100)
+    sleep(randint(2,5)
     driver.find_element_by_css_selector("#HeroSearchButton").click()
 
 def parse_glass_job(driver, job_link, city):
     
     driver.get(job_link)
 
-    sleep(randint(30,100)/100)
+    sleep(randint(5,10)
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     
@@ -69,7 +69,7 @@ def parse_search(driver, city):
         except:
             pass
         
-        sleep(randint(20,50)/100)
+        sleep(randint(2,5)
 
         soup = BeautifulSoup(driver.page_source, 'html.parser')
 
@@ -86,7 +86,7 @@ def parse_search(driver, city):
             next_page.find("span")["class"][0]
             next_page = False
         except:
-            sleep(randint(50,100)/100)
+            sleep(randint(5,10)
             next_page = 'next'
     
     return job_links
@@ -94,7 +94,7 @@ def parse_search(driver, city):
     
 
 
-def search_glassdoor(term, city, country_code):
+def search_glassdoor(term, city, country_code, country):
 
     url = "https://www.glassdoor.ca/ottawa"
     driver = webdriver.Firefox(executable_path=r'geckodriver.exe')
@@ -107,7 +107,10 @@ def search_glassdoor(term, city, country_code):
     job_list = []
 
     for job_link in job_links:
-        job = parse_glass_job(driver, job_link, city)
+        job = parse_glass_job(driver, job_link, city,)
+        job.city = city
+        job.country_code = country_code
+        job.country = country
         job_list.append(parse_gen_job(job))
     return job_list
 

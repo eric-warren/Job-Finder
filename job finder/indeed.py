@@ -95,7 +95,7 @@ def parse_indeed(jobs, country_code):
     for job in jobs:
 
         #random delay might move this later
-        sleep(randint(10,100)/100)
+        sleep(randint(5, 10))
         
         # checks if the prefix is already in the link if nto adds it
         if "indeed.com" not in job:
@@ -151,7 +151,7 @@ def parse_indeed(jobs, country_code):
     return parsed_jobs
 
 
-def search_indeed(term, city, country_code):
+def search_indeed(term, city, country_code, country):
     """
     Main Indeed function that call all the other functions and creates the search url
 
@@ -176,6 +176,7 @@ def search_indeed(term, city, country_code):
 
     # While therte is still a next page go to it and get all the info
     while next_page:
+        sleep(2.5)
         next_page = add_prefix(next_page, country_code)
         page_info = get_s_page_info(next_page)
         for link in page_info["job_links"]:
@@ -188,6 +189,10 @@ def search_indeed(term, city, country_code):
     parsed_jobs = []
 
     for job in jobs:
-        parsed_jobs.append(parse_gen_job(job))
+        job = parse_gen_job(job)
+        job.city = city
+        job.country_code = country_code
+        job.country = country
+        parsed_jobs.append(job)
 
     return parsed_jobs

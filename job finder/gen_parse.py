@@ -120,5 +120,3 @@ def parse_gen_job(job):
         job.us_only = True
     
     return job
-
-
