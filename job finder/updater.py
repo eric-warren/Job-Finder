@@ -33,6 +33,4 @@ def update_jobs():
 
 new_jobs = update_jobs()
 
-for x in new_jobs:
-    print(x.title + " at " + x.company + " in " + x.city + ", " + x.country)
 print(len(new_jobs))

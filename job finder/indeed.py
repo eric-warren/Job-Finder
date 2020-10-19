@@ -3,8 +3,9 @@ from gen_parse import parse_gen_job
 from objects import job_c
 from time import sleep
 from random import randint
+from db import get_jobs
 
-def get_job_links(soup):
+def get_jobs_search(soup):
     """
     finds all the job posting in the search page of indeed
 
@@ -15,17 +16,22 @@ def get_job_links(soup):
         list: list of the links to all the jobn postings
     """
     divs = soup.find_all('div')
-    job_links = []
+    jobs = []
     for div in divs:
         try:
             # Checks for the indicators of job postings
             if "pj_" in div.get("id") or "p_" in div.get("id"):     
                 # Makes a list of the links to the page that the job is on      
-                job_links.append(div.find_all("a",href=True, class_="jobtitle turnstileLink")[0]["href"])
+                url = div.find_all("a",href=True, class_="jobtitle turnstileLink")[0]["href"]
+                title = div.find_all("a",href=True, class_="jobtitle turnstileLink")[0].text
+                company = div.find("span", class_="company").text
+                jobs.append(job_c(title.replace('\n', ''), company.replace('\n', ''), url))
+
         except:
             pass
+        
 
-    return job_links
+    return jobs
 
 def get_next_page(soup):
     """
@@ -58,12 +64,12 @@ def get_s_page_info(url):
     soup = get_page(url)
 
     # Gets the job links
-    jobs = get_job_links(soup)
+    jobs = get_jobs_search(soup)
 
     # Get the link to the next page
     next_page = get_next_page(soup)
 
-    return{"job_links": jobs, "next_page": next_page}
+    return{"jobs": jobs, "next_page": next_page}
         
 
 def add_prefix(url, country_code):
@@ -94,14 +100,23 @@ def parse_indeed(jobs, country_code):
     # Loops through job links
     for job in jobs:
 
+        current_jobs = get_jobs()
+        used_md5 = []
+        for c_job in current_jobs:
+            used_md5.append(c_job.md5)
+        
+        if job.md5 in used_md5:
+            continue
+
         #random delay might move this later
         sleep(randint(5, 10))
         
+
         # checks if the prefix is already in the link if nto adds it
-        if "indeed.com" not in job:
-            page = get_page(add_prefix(job, country_code))
+        if "indeed.com" not in job.url:
+            page = get_page(add_prefix(job.url, country_code))
         else:
-            page = get_page(job)
+            page = get_page(job.url)
         
         # Grabs the job title and company from the page (some links go directly to the company page therefore a try continue)
         try:
@@ -111,7 +126,7 @@ def parse_indeed(jobs, country_code):
         except:
             continue
 
-        parsed_job = job_c(title, company ,add_prefix(job, country_code))
+        parsed_job = job_c(title, company ,add_prefix(job.url, country_code))
 
 
         # Tries to get the city from the page
@@ -171,7 +186,7 @@ def search_indeed(term, city, country_code, country):
     page_info = get_s_page_info(url)
 
     # Gets the list and string from the dict that was returned
-    job_links = (page_info["job_links"])
+    jobs = (page_info["jobs"])
     next_page = page_info["next_page"]
 
     # While therte is still a next page go to it and get all the info
@@ -179,12 +194,12 @@ def search_indeed(term, city, country_code, country):
         sleep(2.5)
         next_page = add_prefix(next_page, country_code)
         page_info = get_s_page_info(next_page)
-        for link in page_info["job_links"]:
-            job_links.append(link)
+        for job in page_info["jobs"]:
+            jobs.append(job)
         next_page = page_info["next_page"]
     
     # Parses the job to create job objects
-    jobs = parse_indeed(job_links, country_code)
+    jobs = parse_indeed(jobs, country_code)
 
     parsed_jobs = []
 

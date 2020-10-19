@@ -782,3 +782,203 @@ Can't find symbol 'eglSwapBuffersWithDamageEXT'.
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1603075802310	geckodriver	INFO	Listening on 127.0.0.1:62536
+1603075805372	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofile92eCak"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603075807193	Marionette	INFO	Listening on port 62545
+1603075807402	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.glassdoor.com/jobs-ux-app/static/js/gd-jx-core-bottom-en-CA.js?v=469c5b3shq, line 1: ReferenceError: separatePreferencesTreatment is not defined
+1603075852287	Marionette	INFO	Stopped listening on port 62545
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603075854623	geckodriver	INFO	Listening on 127.0.0.1:62649
+1603075857673	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofile9Q8KmN"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603075859480	Marionette	INFO	Listening on port 62657
+1603075859698	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.glassdoor.com/jobs-ux-app/static/js/gd-jx-core-bottom-en-CA.js?v=469c5b3shq, line 1: ReferenceError: separatePreferencesTreatment is not defined
+1603076001176	Marionette	INFO	Stopped listening on port 62657
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603076002839	geckodriver	INFO	Listening on 127.0.0.1:62789
+1603076005882	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofilejWx2t7"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076007689	Marionette	INFO	Listening on port 62797
+1603076007936	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603076143410	Marionette	INFO	Stopped listening on port 62797
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+emp\\rust_mozprofileooHvEW"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076139792	Marionette	INFO	Listening on port 62907
+1603076139992	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603076149297	Marionette	INFO	Stopped listening on port 62907
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603076154292	geckodriver	INFO	Listening on 127.0.0.1:62993
+1603076157336	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofileYmQmYt"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076159069	Marionette	INFO	Listening on port 63001
+1603076159371	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603076226678	Marionette	INFO	Stopped listening on port 63001
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603076230679	geckodriver	INFO	Listening on 127.0.0.1:63088
+1603076233717	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofileDKdSAa"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076235589	Marionette	INFO	Listening on port 63096
+1603076235747	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+JavaScript error: https://www.glassdoor.com/jobs-ux-app/static/js/gd-jx-core-bottom-en-CA.js?v=469c5b3shq, line 1: ReferenceError: separatePreferencesTreatment is not defined
+1603076647432	Marionette	INFO	Stopped listening on port 63096
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603076649661	geckodriver	INFO	Listening on 127.0.0.1:63285
+1603076652686	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofile5nTZLk"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076654589	Marionette	INFO	Listening on port 63293
+1603076654731	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+1603076785085	Marionette	INFO	Stopped listening on port 63293
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603076786903	geckodriver	INFO	Listening on 127.0.0.1:63394
+1603076789935	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofileYJM07F"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076791762	Marionette	INFO	Listening on port 63402
+1603076791972	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+1603076916028	Marionette	INFO	Stopped listening on port 63402
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603076919649	geckodriver	INFO	Listening on 127.0.0.1:63512
+1603076922688	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofileO5Zno9"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603076924652	Marionette	INFO	Listening on port 63520
+1603076924738	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.2laq3Py8kJk.O/m=client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCNOVyb6DDYv7xgJGtF_6RiAl0K1Kw/cb=gapi.loaded_0, line 578: uncaught exception: gapi.auth2.ExternallyVisibleError: Missing required parameter 'client_id'
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.glassdoor.ca"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.glassdoor.ca"
+1603077091940	Marionette	INFO	Stopped listening on port 63520
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+emp\\rust_mozprofilesEVMV3"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603077065172	Marionette	INFO	Listening on port 63610
+1603077065330	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+1603077229638	Marionette	INFO	Stopped listening on port 63610
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603077231985	geckodriver	INFO	Listening on 127.0.0.1:63751
+1603077235015	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofile3fv2ze"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603077236866	Marionette	INFO	Listening on port 63759
+1603077237045	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+1603077417123	Marionette	INFO	Stopped listening on port 63759
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603077419263	geckodriver	INFO	Listening on 127.0.0.1:63883
+1603077422296	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofilem0jvHJ"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603077424133	Marionette	INFO	Listening on port 63891
+1603077424342	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.2laq3Py8kJk.O/m=client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCNOVyb6DDYv7xgJGtF_6RiAl0K1Kw/cb=gapi.loaded_0, line 578: uncaught exception: gapi.auth2.ExternallyVisibleError: Missing required parameter 'client_id'
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+JavaScript error: https://www.glassdoor.com/jobs-ux-app/static/js/gd-jx-core-bottom-en-CA.js?v=469c5b3shq, line 1: ReferenceError: separatePreferencesTreatment is not defined
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+1603077573255	Marionette	INFO	Stopped listening on port 63891
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603077576842	geckodriver	INFO	Listening on 127.0.0.1:64011
+1603077579886	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofilelW03Ae"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603077581749	Marionette	INFO	Listening on port 64020
+1603077581910	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+JavaScript error: https://www.glassdoor.com/jobs-ux-app/static/js/gd-jx-core-bottom-en-CA.js?v=469c5b3shq, line 1: ReferenceError: separatePreferencesTreatment is not defined
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: chrome://marionette/content/proxy.js, line 222: TypeError: this.browser.driver.dialogObserver is null
+JavaScript error: chrome://marionette/content/proxy.js, line 222: TypeError: this.browser.driver.dialogObserver is null
+1603077825509	Marionette	INFO	Stopped listening on port 64020
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

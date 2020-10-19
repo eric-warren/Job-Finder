@@ -52,11 +52,12 @@ def get_search_keys(settings):
         search_keys.append(key)
 
     # Add the follwoing combination to the search list (main_key + suffix), (prefix + main_key + suffix)
+    '''
     for key in main_key:
         for end in suffix:
             search_keys.append(key + " " + end)
             for start in prefix:
-                 search_keys.append(start + " " + key + " " + end)
+                 search_keys.append(start + " " + key + " " + end)'''
     return search_keys
 
 def get_settings():

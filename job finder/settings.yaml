@@ -10,13 +10,8 @@ areas:
 
 search:
   main_key:
-    - Security
-    - Network
   prefix:
-    - Junior
   suffix:
-    - Engineer
-    - Administrator
   custom_search:
     - Security Automation Engineer
 
