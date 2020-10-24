@@ -3,19 +3,35 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 from objects import job_c, company_c
+from gen_parse import get_settings
+
+
+def get_con_str():
+
+    settings = get_settings()
+    db_type = settings["db"]["db_type"]
+    db_path = settings["db"]["path"]
+    db_user = settings["db"]["username"]
+    db_pass = settings["db"]["password"]
+
+    if db_type == "sqlite":
+        con_str = f"{db_type}:///{db_path}"
+    else:
+        con_str = f"{db_type}://{db_user}:{db_pass}@{db_path}"
+    return con_str
 
 
 def create_db():
     """
     This Functions is to create the DB and tables if it does not already exists
     """
-
     # Checks if the DB file job_db.db exsists and if it doesnt creates it
-    if not database_exists("sqlite:///job_db.db"):
-        create_database("sqlite:///job_db.db")
+
+    if not database_exists(get_con_str()) and "sqlite" in get_con_str():
+        create_database(get_con_str())
 
     # This is needed for SQL alchemy 
-    engine = create_engine("sqlite:///job_db.db")
+    engine = create_engine(get_con_str())
 
     # Creates the jobs table if it does not exists
     if not engine.dialect.has_table(engine, "jobs"):  
@@ -48,7 +64,7 @@ def get_session():
         SqlAlchemy session: used for connecting to DB
     """
 
-    engine = create_engine("sqlite:///job_db.db")
+    engine = create_engine(get_con_str())
     session = sessionmaker(bind=engine)()
 
     return session
@@ -143,3 +159,4 @@ def get_companies():
     return companies
 
 
+create_db()

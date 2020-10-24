@@ -982,3 +982,21 @@ JavaScript error: chrome://marionette/content/proxy.js, line 222: TypeError: thi
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1603077827164	geckodriver	INFO	Listening on 127.0.0.1:64262
+1603077830192	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Eric\\AppData\\Local\\Temp\\rust_mozprofilekFbFlp"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603077832126	Marionette	INFO	Listening on port 64272
+1603077832241	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.glassdoor.com/jobs-ux-app/static/js/gd-jx-core-bottom-en-CA.js?v=469c5b3shq, line 1: ReferenceError: separatePreferencesTreatment is not defined
+JavaScript error: https://www.google.ca/adsense/search/async-ads.js, line 41: uncaught exception: google.ads.search.Ads: a is null
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+1603120122328	Marionette	INFO	Stopped listening on port 64272
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

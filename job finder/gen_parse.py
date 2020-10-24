@@ -73,7 +73,7 @@ def get_settings():
         settings = yaml.load(f, Loader=yaml.FullLoader)
     
     # Restructuring the dict
-    updated_settings = {"parse_keys":get_parse_keys(settings), "areas":get_search_areas(settings), "search_keys":get_search_keys(settings)}
+    updated_settings = {"parse_keys":get_parse_keys(settings), "areas":get_search_areas(settings), "search_keys":get_search_keys(settings), "db":settings["db"]}
 
     return updated_settings
 
