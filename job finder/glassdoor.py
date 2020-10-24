@@ -5,6 +5,7 @@ from random import randint
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.options import Options
 from bs4 import BeautifulSoup
 from objects import job_c
 from gen_parse import parse_gen_job
@@ -93,7 +94,9 @@ def parse_search(driver, city):
 def search_glassdoor(term, city, country_code, country):
 
     url = "https://www.glassdoor.ca/ottawa"
-    driver = webdriver.Firefox(executable_path=r'geckodriver.exe')
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(options=options, executable_path=r'geckodriver.exe')
 
     driver.get(url)
     search_jobs(driver, term, city)
