@@ -30,4 +30,9 @@ parse:
     not:
       - test7
       - test8
-  
+
+db:
+  db_type: sqlite
+  path: "job_db.db"
+  username: root
+  password: password
