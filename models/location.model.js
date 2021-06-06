@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const locationSchema = new Schema({
   city: String,
-  counrty: String,
+  country: String,
   continent: String,
   eu: Boolean,
   tags: [String],

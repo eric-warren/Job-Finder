@@ -1,58 +1,85 @@
 const router = require('express').Router();
+const { query } = require('express');
 let location = require('../models/location.model');
 
 router.route('/').get((req, res) => {
 
-  const { city, country, continent, eu, tag } = req.query;
-
   location.find()
-    .then(locations => res.json(users))
+    .then(locations => res.json(locations))
     .catch(err => res.status(400).json('Error: ' + err));
 
-  if (firstName) {
-    results = results.filter(r => r.firstName === firstName);
-  }
-
-  if (lastName) {
-    results = results.filter(r => r.lastName === lastName);
-  }
-  
-  if (age) {
-    results = results.filter(r => +r.age === +age);
-  }
 });
 
 router.route('/:id').get((req, res) => {
-    location.findbtID(req.params.id)
-      .then(() => res.json('Exercise deleted.'))
+    location.findById(req.params.id)
+      .then(locations => res.json(locations))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
+router.route('/:id').delete((req, res) => {
+  location.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Location deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+router.route('/:id').patch((req, res) => {
+  location.findById(req.params.id)
+    .then(location => {
+      if (req.body.city){
+        location.city = req.body.city;
+      }
+      if (req.body.country){
+        location.country = req.body.country;
+      }
+      if (req.body.continent){
+        location.continent = req.body.continent;
+      }
+      if (req.body.eu){
+        location.eu = Boolean(req.body.eu);;
+      }
+      if (req.body.tags){
+        location.tags = req.body.tags;
+      }
+
+      location.save()
+        .then(() => res.json('Location updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
 router.route('/add').post((req, res) => {
   let set = 0;
+  city = ''
+  country = ''
+  continent = ''
+  eu = false
+  tags = []
 
   if (req.body.city){
-      const city = req.body.city
+      city = req.body.city
       set += 1
   }
-  else{const city = ''}
+  else{city = ''}
   if (req.body.country){
-    const country = req.body.country
+    country = req.body.country
     set += 1
   }
-  else{const country = ''}
+  else{country = ''}
   if (req.body.continent){
-    const continent = req.body.continent
+    continent = req.body.continent
   }
-  else{const continent = ''}
+  else{continent = ''}
   if (req.body.eu){
-    const eu = req.body.eu
+    eu = req.body.eu
   }
-  else{const eu = false}
+  else{eu = false}
   if (req.body.tags){
-    const tags = req.body.tags
+    tags = req.body.tags
   }
-  else{const tags = []}
+  else{tags = []}
 
   const newLocation = new location({
           city,
