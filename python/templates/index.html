@@ -31,18 +31,12 @@
               </tr>
             </thead>
             <tbody>
+              {% for tech in vars[x+1*y+1].items() -%}
               <tr>
-                <th scope="row">Splunk</th>
-                <th>4000</th>
+                <th scope="row">tech[0]</th>
+                <th>tech[1]</th>
               </tr>
-              <tr>
-                <th scope="row">Kibana</th>
-                <th>3000</th>
-              </tr>
-              <tr>
-                <th scope="row">Sentinal</th>
-                <th>100</th>
-              </tr>
+              {%- endfor %}
             </tbody>
           </table>
         </div>
