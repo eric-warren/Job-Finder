@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.options import Options
 tech = 'splunk'
 location = 'United States'
 
+getlinkedinCount(tech, location)
+
 def getlinkedinCount(tech, location):
     options = Options()
     options.headless = True
