@@ -8,7 +8,7 @@ def getlinkedinCount(tech):
 
     options = Options()
     options.headless = True
-    driver = webdriver.Chrome(executable_path='chromedriver.exe', options=options)
+    driver = webdriver.Chrome(executable_path='./python/chromedriver.exe', options=options)
     driver.get(f'https://www.indeed.com/jobs?q={tech}&l=')
     count = driver.find_element_by_css_selector('#searchCountPages').get_attribute('innerHTML')
     count = int(count.strip()[10:-5].replace(',', ''))
@@ -16,10 +16,10 @@ def getlinkedinCount(tech):
     return count
 
 def getAllSearch():
-    files = listdir('./searches')
+    files = listdir('./python/searches')
     searches = {}
     for file in files:
-        with open(f'./searches/{file}') as f:
+        with open(f'./python/searches/{file}') as f:
             searches[file] = f.read().splitlines()
     return searches
 
@@ -37,10 +37,10 @@ def getAllCounts():
     return allCounts
 
 env = Environment(
-    loader=FileSystemLoader("templates"),
+    loader=FileSystemLoader("python/templates"),
     autoescape=select_autoescape()
 )
 template = env.get_template("index.html")
 temp = template.render(vars=getAllCounts())
-with open('../index.html', 'w') as f:
+with open('./index.html', 'w') as f:
     f.write(temp)
