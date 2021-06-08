@@ -1,11 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-tech = 'splunk'
-location = 'United States'
-
-getlinkedinCount(tech, location)
-
 def getlinkedinCount(tech, location):
     options = Options()
     options.headless = True
@@ -17,3 +12,7 @@ def getlinkedinCount(tech, location):
     driver.close()
     return count
 
+tech = 'splunk'
+location = 'United States'
+
+getlinkedinCount(tech, location)
