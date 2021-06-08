@@ -1,57 +1,57 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-<head>
-  <meta charset="utf-8">
-  <title>Test title</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <title>Popular Tech</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.ico">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="css/main.css">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
 
-<body>
-  <div class="container">
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand mb-0 h1">What Technology are people looking for?</span>
-    </nav>
-    {% for x in range((vars|length/3)|round(method='ceil')|int) -%}
-    <div class='row'>
-      {% for y in range(3) -%}
-        {% if x+1*y+1 <= vars|length %}
-        <div class="col-lg-4 col-sm-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" colspan=2 class="thead">{{ vars[0][0] }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for tech in vars[x*y][1].items() -%}
-              <tr>
-                <th scope="row">{{ tech[0] }}</th>
-                <th>{{ tech[1] }}</th>
-              </tr>
-              {%- endfor %}
-            </tbody>
-          </table>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">What Technology are people looking for?</span>
+      </nav>
+      {% for x in range((vars|length/3)|round(method='ceil')|int) -%}
+        <div class='row'>
+          {% for y in range(3) -%}
+            {% if x+1*y+x*3 < vars|length -%}
+              <div class="col-lg-4 col-sm-12">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" colspan=2 class="thead">{{ vars[x+1*y+x*3][0] }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for tech in vars[x+1*y+x*3][1] -%}
+                      <tr>
+                        <th scope="row">{{ tech[0] }}</th>
+                        <th>{{ tech[1] }}</th>
+                      </tr>
+                    {%- endfor %}
+                  </tbody>
+                </table>
+              </div>
+            {% endif %}
+          {%- endfor %}
         </div>
-        {% endif %}
       {%- endfor %}
     </div>
-    {%- endfor %}
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https:////cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-  <script src="js/main.js"></script>
-  
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https:////cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
 
 </html>
