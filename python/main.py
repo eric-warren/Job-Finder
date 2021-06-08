@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from os import listdir
+from jinja2 import Environment, FileSystemLoader, select_autoescape
+
 
 def getlinkedinCount(tech):
 
@@ -24,11 +26,21 @@ def getAllSearch():
 
 def getAllCounts():
     searches = getAllSearch()
-    allCounts = {}
+    allCounts = []
     for search in searches.items():
         res= {}
         for item in search[1]:
             res[item] = getlinkedinCount(item)
 
-        allCounts[search[0]] = res
+        allCounts.append([search[0], res])
+    print(allCounts)
     return allCounts
+
+env = Environment(
+    loader=FileSystemLoader("templates"),
+    autoescape=select_autoescape()
+)
+template = env.get_template("index.html")
+temp = template.render(vars=getAllCounts())
+with open('../index.html', 'w') as f:
+    f.write(temp)
