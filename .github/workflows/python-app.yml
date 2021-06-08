@@ -21,6 +21,6 @@ jobs:
       with:
         python-version: 3.9
     - name: Install dependencies
-      run: pip install -r requirements.txt; fi
+      run: pip install -r requirements.txt
     - name: run
       run: python main.py
