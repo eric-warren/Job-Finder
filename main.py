@@ -6,7 +6,7 @@ location = 'United States'
 
 def getlinkedinCount(tech, location):
     options = Options()
-    #options.headless = True
+    options.headless = True
     driver = webdriver.Chrome(executable_path='chromedriver.exe', chrome_options=options)
     driver.get(f'https://www.linkedin.com/jobs/search?keywords={tech}&location={location}')
 
